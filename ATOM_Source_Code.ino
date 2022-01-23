@@ -46,14 +46,16 @@ void loop() {
   //very very smooth left
   if ( ( LL == LOW &&  LR == HIGH)  && ( RL == LOW &&  RR == LOW)) {
 
-    turnLeft(110, 130);
+    turnLeft(140, 160);
+    
   }
 
   //very smooth left
   else if ( (LL == HIGH && LR == HIGH)  && (  RL == LOW &&   RR == LOW)) {
 
-
-    turnLeft(100, 110);
+ 
+    turnLeft(140, 150);
+  
 
   }
 
@@ -61,40 +63,45 @@ void loop() {
   else if ( ( LL == HIGH &&  LR == LOW)  && ( RL == LOW &&  RR == LOW)) {
 
 
-    turnLeft(110, 130);
+    turnLeft(140, 160);
+    
 
 
   }
 
-  //hard left 90dig
-  else if (( LL == LOW &&  LR == HIGH)  && (  RL == HIGH &&   RR == HIGH)) {
+  }
+   //hard left 90dig
+  else if (( LL == HIGH &&  LR == HIGH)  && (  RL == HIGH &&   RR == LOW)) {
 
-    turnLeft(0, 150);
-    //delay(25);
+    turnLeft(0,220);
+    delay(60);
 
   }
-  //junction
+
+//junction
   else if (( LL == HIGH &&  LR == HIGH)  && (  RL == HIGH &&   RR == HIGH)) {
 
-    turnLeft(100, 220);
-
+    turnLeft(100,240);
+    delay(60);
+    
+       
   }
 
   //forward
   else if ((LL == LOW &&  LR == HIGH)  && (  RL == HIGH &&   RR == LOW)) {
-
-    forward(65, 75);
-
-    //delay(30);
+ 
+    forward(128,128);
+  
+    
 
 
   }
-
-
+  
   //very very smooth right
   else if ( ( LL == LOW &&  LR == LOW)  && ( RL == HIGH &&  RR == LOW)) {
 
-    turnRight(80, 90);
+    turnRight(100,110);
+    
 
 
 
@@ -103,8 +110,9 @@ void loop() {
   //very smooth right
   else if ((LL == LOW &&  LR == LOW) && (  RL == HIGH &&   RR == HIGH)) {
 
-
-    turnRight(110, 90);
+ 
+    turnRight(130, 100);
+ 
 
 
   }
@@ -113,31 +121,33 @@ void loop() {
   else if (( LL == LOW && LR == LOW)  && (  RL == LOW && RR == HIGH)) {
 
 
-
-    turnRight(120, 100);
-
-
-  }
-  //out of track
-  else if ((LL == LOW &&  LR == LOW)  && (  RL == LOW &&   RR == LOW)) {
-
-
-    turnRight(80, 90);
+  
+    turnRight(130,100);
+ 
 
 
   }
+   //out of track
+  else if ((LL == LOW &&  LR == LOW)  && (  RL ==LOW &&   RR == LOW)) {
+
+  turnRight(70,88);
+  
+
+
+  }
+  
 
   //hard right 90dig
   else if ( (LL == LOW &&  LR == HIGH)  && (  RL == HIGH &&   RR == HIGH)) {
 
 
-    turnRight(180, 0);
-    delay(25);
-
+    turnRight(220, 0);
+    
+    
 
   }
 
-
+  
 }
 
 
@@ -164,7 +174,6 @@ void turnRight(int x, int y) {
   analogWrite(enA, x );
   digitalWrite(in1, HIGH);
   digitalWrite(in2, LOW);
-
   //right
   analogWrite(enB, y);
   digitalWrite(in3, LOW);
